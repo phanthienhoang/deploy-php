@@ -2,9 +2,15 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = new DBConnection;
-    $file = $_FILES["fileSql"]["tmp_name"];
-    $query = file_get_contents($file);
-    $stmt = $db->con->prepare($query);
+    // $file = $_FILES["fileSql"]["tmp_name"];
+    // $query = file_get_contents($file);
+    $sql = "CREATE TABLE `student` (
+        `id` int(11) NOT NULL,
+        `name` varchar(50) NOT NULL,
+        `email` varchar(100) NOT NULL,
+        `phone` varchar(50) NOT NULL
+      )";
+    $stmt = $db->con->prepare($sql);
     return $stmt->execute();
 }
 ?>
