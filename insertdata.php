@@ -1,7 +1,13 @@
-<?php include "inclue/DBConnection.php";?>
+<?php include "inclue/DBConnection.php";
+$db = new DBConnection;
+var_dump($db->con);
+
+?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = new DBConnection;
+
+    
     // $file = $_FILES["fileSql"]["tmp_name"];
     // $query = file_get_contents($file);
     $sql = "CREATE TABLE `student` (
