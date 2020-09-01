@@ -11,6 +11,13 @@ class DBConnection
     private $port = "5432";
 
 
+    // public $con;
+    // private $servername = "localhost";
+    // private $username = "root";
+    // private $password = "";
+    // private $dbname = "coffee_shop_4.0";
+    // private $charset = "utf8";
+
     public function __construct(){
         $this->con = $this->connection();
     }
