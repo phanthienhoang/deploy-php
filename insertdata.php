@@ -1,9 +1,4 @@
-<?php include "inclue/DBConnection.php";
-
-$db = new DBConnection;
-echo $db->con;
-
-?>
+<?php include "inclue/DBConnection.php";?>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = new DBConnection;
