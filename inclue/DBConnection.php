@@ -24,10 +24,11 @@ class DBConnection
 
     public function connection (){        
         try {
-            $dsn = "mysql:host=".$this->servername.";port=".$this->port.";dbname=".$this->dbname .";charset=".$this->charset;
+            $dsn = "pgsql:host=".$this->servername.";port=".$this->port.";dbname=".$this->dbname.";charset=".$this->charset;
             $pdo =  new PDO($dsn,$this->username,$this->password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
-            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);         
+            $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);  
+            $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES , false);   
+            $pdo->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);    
             return $pdo;
         } catch (\PDOException $e) {
             echo "connect failed " . $e->getMessage();
